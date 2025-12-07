@@ -1,0 +1,11 @@
+{
+  "name": "gold-key-escapes",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "front-matter": "^4.0.2",
+    "marked": "^11.1.1"
+  }
+}

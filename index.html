@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Key Escapes | Unlock Unforgettable Travel Experiences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; background: #FDFCFA; color: #1A1A1A; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: #C9A962; color: white; }
+
+        /* Navigation */
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(253, 252, 250, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(201, 169, 98, 0.1); }
+        .nav-content { max-width: 1400px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; color: #C9A962; cursor: pointer; transition: opacity 0.3s ease; text-decoration: none; }
+        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #1A1A1A; letter-spacing: -0.02em; }
+        .nav-links { display: flex; gap: 8px; align-items: center; }
+        .nav-link { background: none; border: none; padding: 10px 18px; font-size: 14px; font-weight: 500; color: #1A1A1A; cursor: pointer; border-radius: 100px; transition: all 0.3s ease; opacity: 0.7; text-decoration: none; font-family: inherit; }
+        .nav-link:hover { opacity: 1; background: rgba(201, 169, 98, 0.08); }
+        .nav-link.active { background: rgba(201, 169, 98, 0.12); color: #1A1A1A; opacity: 1; }
+        .nav-instagram { display: flex; align-items: center; gap: 6px; padding: 10px 16px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border-radius: 100px; text-decoration: none; font-size: 13px; font-weight: 600; margin-left: 8px; transition: all 0.3s ease; }
+        .nav-instagram:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4); }
+        .nav-instagram svg { width: 18px; height: 18px; }
+        .mobile-menu-btn { display: none; background: none; border: none; width: 40px; height: 40px; cursor: pointer; position: relative; }
+        .hamburger { width: 20px; height: 2px; background: #1A1A1A; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: all 0.3s ease; }
+        .hamburger::before, .hamburger::after { content: ''; position: absolute; width: 20px; height: 2px; background: #1A1A1A; transition: all 0.3s ease; }
+        .hamburger::before { top: -6px; }
+        .hamburger::after { bottom: -6px; }
+        .mobile-menu { display: none; flex-direction: column; padding: 0 40px 20px; gap: 4px; }
+        .mobile-menu a { padding: 14px 0; font-size: 16px; font-weight: 500; color: #1A1A1A; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.05); cursor: pointer; }
+        .mobile-instagram { display: flex; align-items: center; gap: 8px; margin-top: 12px; padding: 14px 20px !important; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white !important; border-radius: 12px; border: none !important; }
+
+        /* Hero Section */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(135deg, #1E2A3A 0%, #0F1822 100%); }
+        .hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, rgba(201, 169, 98, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(201, 169, 98, 0.1) 0%, transparent 50%); pointer-events: none; }
+        .hero-content { max-width: 900px; padding: 120px 40px 80px; text-align: center; position: relative; z-index: 1; animation: fadeInUp 1s ease forwards; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-tagline { display: inline-block; padding: 10px 24px; background: rgba(201, 169, 98, 0.15); border-radius: 100px; font-size: 13px; font-weight: 600; color: #C9A962; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 32px; border: 1px solid rgba(201, 169, 98, 0.2); }
+        .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 8vw, 80px); font-weight: 600; color: #FFFFFF; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 28px; }
+        .hero-title-accent { color: #C9A962; }
+        .hero-subtitle { font-size: clamp(16px, 2vw, 20px); color: rgba(255, 255, 255, 0.7); max-width: 600px; margin: 0 auto 48px; line-height: 1.7; }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .primary-btn { display: inline-flex; align-items: center; padding: 18px 36px; background: #C9A962; color: #FFFFFF; border: none; border-radius: 100px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(201, 169, 98, 0.3); text-decoration: none; font-family: inherit; }
+        .primary-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 169, 98, 0.4); }
+        .primary-btn svg { margin-left: 8px; }
+        .secondary-btn { display: inline-flex; align-items: center; padding: 18px 36px; background: transparent; color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 100px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; font-family: inherit; }
+        .secondary-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.5); }
+        .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); }
+        .scroll-line { width: 1px; height: 60px; background: rgba(201, 169, 98, 0.5); animation: scrollLine 2s ease infinite; }
+        @keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 50.1% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+        /* Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .section-label { display: inline-block; font-size: 12px; font-weight: 700; color: #C9A962; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px; }
+        .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 52px); font-weight: 600; color: #1A1A1A; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 24px; }
+        .section-title-light { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 52px); font-weight: 600; color: #FFFFFF; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 24px; }
+        .title-accent { color: #C9A962; }
+
+        /* About Section */
+        .about { padding: 140px 0; background: #FDFCFA; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: center; }
+        .about-image-wrapper { position: relative; }
+        .about-image-frame { aspect-ratio: 4/5; border-radius: 24px; overflow: hidden; background: #F5F3EF; position: relative; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08); }
+        .about-image-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #C9A962; gap: 16px; }
+        .placeholder-text { font-size: 14px; font-weight: 500; opacity: 0.6; }
+        .about-accent { position: absolute; bottom: -20px; right: -20px; width: 60%; height: 60%; background: linear-gradient(135deg, rgba(201, 169, 98, 0.15), rgba(201, 169, 98, 0.05)); border-radius: 20px; z-index: -1; }
+        .about-content { padding-right: 20px; }
+        .about-text { font-size: 17px; color: #4A4A4A; line-height: 1.8; margin-bottom: 20px; }
+        .differentiators { margin-top: 48px; padding: 36px; background: #F8F6F2; border-radius: 20px; }
+        .diff-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; margin-bottom: 28px; color: #1A1A1A; }
+        .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .diff-item { display: flex; gap: 16px; align-items: flex-start; }
+        .diff-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(201, 169, 98, 0.12); display: flex; align-items: center; justify-content: center; color: #C9A962; flex-shrink: 0; }
+        .diff-item-title { font-size: 15px; font-weight: 600; color: #1A1A1A; margin-bottom: 4px; }
+        .diff-item-desc { font-size: 14px; color: #6B6B6B; }
+
+        /* Services Section */
+        .services { padding: 140px 0; position: relative; overflow: hidden; }
+        .services-background { position: absolute; inset: 0; background: linear-gradient(180deg, #1E2A3A 0%, #162029 100%); z-index: 0; }
+        .section-header { position: relative; z-index: 1; text-align: center; margin-bottom: 72px; }
+        .section-subtitle { font-size: 18px; color: rgba(255, 255, 255, 0.6); max-width: 500px; margin: 0 auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; position: relative; z-index: 1; }
+        .service-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 40px; backdrop-filter: blur(10px); transition: all 0.4s ease; }
+        .service-card:hover { background: rgba(255, 255, 255, 0.06); transform: translateY(-4px); }
+        .service-icon { width: 64px; height: 64px; border-radius: 16px; background: rgba(201, 169, 98, 0.12); display: flex; align-items: center; justify-content: center; color: #C9A962; margin-bottom: 24px; }
+        .service-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: #FFFFFF; margin-bottom: 14px; }
+        .service-desc { font-size: 15px; color: rgba(255, 255, 255, 0.6); line-height: 1.7; margin-bottom: 24px; }
+        .service-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .feature-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255, 255, 255, 0.8); }
+        .feature-item svg { color: #C9A962; }
+        .fee-note { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 48px; padding: 20px 32px; background: rgba(201, 169, 98, 0.1); border-radius: 100px; color: #C9A962; font-size: 14px; position: relative; z-index: 1; max-width: fit-content; margin-left: auto; margin-right: auto; }
+
+        /* Blog Section */
+        .blog { padding: 140px 0; background: #F8F6F2; }
+        .blog-header { text-align: center; margin-bottom: 60px; }
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .blog-card { background: #FFFFFF; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); transition: all 0.4s ease; cursor: pointer; }
+        .blog-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1); }
+        .blog-card-image { width: 100%; height: 200px; object-fit: cover; background: linear-gradient(135deg, #1E2A3A, #2D3E50); }
+        .blog-card-image img { width: 100%; height: 100%; object-fit: cover; }
+        .blog-card-content { padding: 28px; }
+        .blog-card-category { display: inline-block; padding: 6px 14px; background: rgba(201, 169, 98, 0.12); color: #C9A962; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 100px; margin-bottom: 16px; }
+        .blog-card-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #1A1A1A; margin-bottom: 12px; line-height: 1.3; }
+        .blog-card-excerpt { font-size: 14px; color: #6B6B6B; line-height: 1.7; margin-bottom: 20px; }
+        .blog-card-meta { display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: #999; }
+        .blog-card-date { display: flex; align-items: center; gap: 6px; }
+        .blog-card-read { color: #C9A962; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+        .blog-empty { grid-column: 1 / -1; text-align: center; padding: 80px 40px; background: #FFFFFF; border-radius: 20px; }
+        .blog-empty-icon { width: 80px; height: 80px; margin: 0 auto 24px; background: rgba(201, 169, 98, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #C9A962; }
+        .blog-empty-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: #1A1A1A; margin-bottom: 12px; }
+        .blog-empty-text { font-size: 16px; color: #6B6B6B; }
+
+        /* Blog Modal */
+        .blog-modal { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(10px); overflow-y: auto; padding: 40px 20px; }
+        .blog-modal.active { display: block; }
+        .blog-modal-content { max-width: 800px; margin: 0 auto; background: #FFFFFF; border-radius: 24px; overflow: hidden; animation: modalSlideIn 0.4s ease; }
+        @keyframes modalSlideIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        .blog-modal-header { position: relative; }
+        .blog-modal-image { width: 100%; height: 300px; object-fit: cover; background: linear-gradient(135deg, #1E2A3A, #2D3E50); }
+        .blog-modal-image img { width: 100%; height: 100%; object-fit: cover; }
+        .blog-modal-close { position: absolute; top: 20px; right: 20px; width: 44px; height: 44px; background: rgba(255, 255, 255, 0.9); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .blog-modal-close:hover { background: #FFFFFF; transform: scale(1.1); }
+        .blog-modal-body { padding: 48px; }
+        .blog-modal-category { display: inline-block; padding: 8px 16px; background: rgba(201, 169, 98, 0.12); color: #C9A962; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 100px; margin-bottom: 20px; }
+        .blog-modal-title { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: #1A1A1A; margin-bottom: 16px; line-height: 1.2; }
+        .blog-modal-meta { display: flex; align-items: center; gap: 20px; font-size: 14px; color: #999; margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid #EAEAEA; }
+        .blog-modal-meta span { display: flex; align-items: center; gap: 6px; }
+        .blog-modal-text { font-size: 17px; color: #4A4A4A; line-height: 1.9; }
+        .blog-modal-text p { margin-bottom: 20px; }
+        .blog-modal-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: #1A1A1A; margin: 40px 0 20px; }
+        .blog-modal-text h3 { font-size: 20px; font-weight: 600; color: #1A1A1A; margin: 32px 0 16px; }
+        .blog-modal-text ul, .blog-modal-text ol { margin: 20px 0; padding-left: 24px; }
+        .blog-modal-text li { margin-bottom: 10px; }
+        .blog-modal-text img { max-width: 100%; border-radius: 12px; margin: 24px 0; }
+        .blog-modal-text blockquote { border-left: 4px solid #C9A962; padding-left: 24px; margin: 32px 0; font-style: italic; color: #666; }
+
+        /* Planning Section */
+        .planning { padding: 140px 0; background: #FDFCFA; }
+        .planning-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: flex-start; }
+        .planning-info { position: sticky; top: 120px; }
+        .planning-text { font-size: 17px; color: #4A4A4A; line-height: 1.8; margin-bottom: 36px; }
+        .promise-list { display: flex; flex-direction: column; gap: 16px; }
+        .promise-item { display: flex; align-items: center; gap: 14px; font-size: 15px; color: #1A1A1A; }
+        .promise-check { width: 28px; height: 28px; border-radius: 50%; background: rgba(201, 169, 98, 0.12); display: flex; align-items: center; justify-content: center; color: #C9A962; }
+        .form-wrapper { background: #FFFFFF; border-radius: 28px; padding: 48px; box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06); border: 1px solid rgba(0, 0, 0, 0.04); }
+        .form { display: flex; flex-direction: column; gap: 24px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .input-group { display: flex; flex-direction: column; gap: 8px; }
+        .label { font-size: 13px; font-weight: 600; color: #1A1A1A; letter-spacing: 0.02em; }
+        .input, .select, .textarea { padding: 16px 20px; border: 1px solid #E8E5E0; border-radius: 14px; font-size: 15px; background: #FDFCFA; transition: all 0.3s ease; outline: none; font-family: inherit; }
+        .input:focus, .select:focus, .textarea:focus { border-color: #C9A962; box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.1); }
+        .select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%231A1A1A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 20px center; }
+        .textarea { resize: vertical; min-height: 120px; }
+        .submit-btn { display: inline-flex; align-items: center; justify-content: center; padding: 20px 40px; background: #C9A962; color: #FFFFFF; border: none; border-radius: 100px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-top: 8px; box-shadow: 0 4px 20px rgba(201, 169, 98, 0.3); font-family: inherit; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 169, 98, 0.4); }
+        .submit-btn svg { margin-left: 8px; }
+
+        /* Contact Section */
+        .contact { padding: 140px 0; position: relative; overflow: hidden; }
+        .contact-background { position: absolute; inset: 0; background: linear-gradient(180deg, #1E2A3A 0%, #0F1822 100%); }
+        .contact-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; text-align: center; }
+        .contact-text { font-size: 17px; color: rgba(255, 255, 255, 0.6); line-height: 1.8; margin-bottom: 48px; }
+        .contact-methods { display: flex; flex-direction: column; align-items: center; gap: 32px; margin-bottom: 56px; }
+        .contact-method { display: flex; align-items: center; gap: 20px; text-decoration: none; color: #FFFFFF; padding: 20px 36px; background: rgba(255, 255, 255, 0.05); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.3s ease; }
+        .contact-method:hover { background: rgba(255, 255, 255, 0.08); }
+        .contact-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(201, 169, 98, 0.15); display: flex; align-items: center; justify-content: center; color: #C9A962; }
+        .contact-method-label { font-size: 12px; font-weight: 600; color: rgba(255, 255, 255, 0.5); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; text-align: left; }
+        .contact-method-value { font-size: 17px; font-weight: 500; }
+        .social-links { display: flex; gap: 16px; }
+        .social-link { width: 52px; height: 52px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; color: #FFFFFF; text-decoration: none; transition: all 0.3s ease; }
+        .social-link:hover { background: rgba(201, 169, 98, 0.2); border-color: rgba(201, 169, 98, 0.3); }
+        .social-link.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border-color: transparent; }
+        .instagram-cta { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 24px; padding: 16px 28px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border-radius: 100px; color: white; text-decoration: none; font-weight: 600; font-size: 15px; transition: all 0.3s ease; }
+        .instagram-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(225, 48, 108, 0.4); }
+        .quick-contact { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; padding: 40px; backdrop-filter: blur(10px); }
+        .quick-contact-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: #FFFFFF; margin-bottom: 28px; }
+        .quick-form { display: flex; flex-direction: column; gap: 16px; }
+        .quick-input, .quick-textarea { padding: 16px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; color: #FFFFFF; font-size: 15px; outline: none; font-family: inherit; }
+        .quick-input::placeholder, .quick-textarea::placeholder { color: rgba(255, 255, 255, 0.4); }
+        .quick-input:focus, .quick-textarea:focus { border-color: rgba(201, 169, 98, 0.5); }
+        .quick-textarea { resize: vertical; min-height: 100px; }
+        .quick-submit { padding: 18px 32px; background: #C9A962; color: #FFFFFF; border: none; border-radius: 100px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-top: 8px; font-family: inherit; }
+        .quick-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201, 169, 98, 0.3); }
+
+        /* Footer */
+        .footer { background: #0A0D10; padding: 80px 0 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        .footer-content { display: flex; justify-content: space-between; margin-bottom: 60px; }
+        .footer-brand { max-width: 300px; }
+        .footer-logo { display: flex; align-items: center; gap: 12px; color: #C9A962; margin-bottom: 16px; font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; }
+        .footer-tagline { font-size: 14px; color: rgba(255, 255, 255, 0.5); line-height: 1.7; margin-bottom: 20px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social-link { width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; color: #FFFFFF; text-decoration: none; transition: all 0.3s ease; }
+        .footer-social-link:hover { background: rgba(201, 169, 98, 0.2); border-color: rgba(201, 169, 98, 0.3); }
+        .footer-social-link.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border-color: transparent; }
+        .footer-links { display: flex; gap: 80px; }
+        .footer-column { display: flex; flex-direction: column; gap: 14px; }
+        .footer-column-title { font-size: 12px; font-weight: 700; color: #C9A962; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+        .footer-link { background: none; border: none; padding: 0; font-size: 14px; color: rgba(255, 255, 255, 0.6); text-decoration: none; cursor: pointer; text-align: left; transition: color 0.3s ease; font-family: inherit; }
+        .footer-link:hover { color: #FFFFFF; }
+        .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.05); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255, 255, 255, 0.4); }
+        .powered-by { font-size: 12px; color: rgba(255, 255, 255, 0.3); }
+
+        /* Legal Pages */
+        .legal-page { display: none; }
+        .legal-page.active { display: block; }
+        .main-content.hidden { display: none; }
+        .page-header { padding: 160px 0 80px; background: linear-gradient(135deg, #1E2A3A 0%, #0F1822 100%); position: relative; overflow: hidden; }
+        .page-header-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 20%, rgba(201, 169, 98, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(201, 169, 98, 0.1) 0%, transparent 50%); pointer-events: none; }
+        .page-header-content { max-width: 800px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; text-align: center; }
+        .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 6vw, 64px); font-weight: 600; color: #FFFFFF; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px; }
+        .page-subtitle { font-size: 17px; color: rgba(255, 255, 255, 0.6); line-height: 1.7; }
+        .last-updated { display: inline-block; margin-top: 24px; padding: 10px 20px; background: rgba(201, 169, 98, 0.15); border-radius: 100px; font-size: 13px; font-weight: 500; color: #C9A962; border: 1px solid rgba(201, 169, 98, 0.2); }
+        .content-section { padding: 80px 0 120px; background: #FDFCFA; }
+        .content-section .container { max-width: 800px; }
+        .legal-content { background: #FFFFFF; border-radius: 24px; padding: 60px; box-shadow: 0 4px 40px rgba(0, 0, 0, 0.04); border: 1px solid rgba(0, 0, 0, 0.04); }
+        .section-block { margin-bottom: 48px; }
+        .section-block:last-child { margin-bottom: 0; }
+        .section-heading { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: #1A1A1A; margin-bottom: 20px; letter-spacing: -0.02em; }
+        .legal-content p { font-size: 16px; color: #4A4A4A; line-height: 1.8; margin-bottom: 16px; }
+        .legal-content a { color: #C9A962; text-decoration: none; font-weight: 500; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 40px; padding: 14px 28px; background: rgba(201, 169, 98, 0.1); color: #C9A962; text-decoration: none; border-radius: 100px; font-size: 14px; font-weight: 600; transition: all 0.3s ease; cursor: pointer; border: none; font-family: inherit; }
+        .back-link:hover { background: rgba(201, 169, 98, 0.2); }
+        .back-link svg { transform: rotate(180deg); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-grid, .planning-grid { grid-template-columns: 1fr; gap: 60px; }
+            .planning-info { position: relative; top: 0; }
+            .services-grid { grid-template-columns: 1fr; }
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+            .diff-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .mobile-menu.active { display: flex; }
+            .nav-content { padding: 16px 24px; }
+            .container { padding: 0 24px; }
+            .hero-content { padding: 100px 24px 60px; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .about, .services, .blog, .planning, .contact { padding: 100px 0; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .form-wrapper { padding: 32px 24px; }
+            .footer-content { flex-direction: column; gap: 48px; }
+            .footer-links { flex-direction: column; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .about-image-wrapper { max-width: 350px; margin: 0 auto; }
+            .page-header { padding: 140px 0 60px; }
+            .page-header-content { padding: 0 24px; }
+            .legal-content { padding: 40px 28px; }
+            .content-section { padding: 60px 0 80px; }
+            .blog-modal-body { padding: 32px 24px; }
+            .blog-modal-title { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#" class="logo" onclick="showMain(); return false;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" /></svg>
+                <span class="logo-text">Gold Key Escapes</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" onclick="showMain()">Home</a>
+                <a href="#about" class="nav-link" onclick="showMain()">About</a>
+                <a href="#services" class="nav-link" onclick="showMain()">Services</a>
+                <a href="#blog" class="nav-link" onclick="showMain()">Blog</a>
+                <a href="#planning" class="nav-link" onclick="showMain()">Start Planning</a>
+                <a href="#contact" class="nav-link" onclick="showMain()">Contact</a>
+                <a href="https://instagram.com/GoldKeyEscapes" target="_blank" class="nav-instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
+                    @GoldKeyEscapes
+                </a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><div class="hamburger"></div></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a onclick="showMain(); navigateTo('home');">Home</a>
+            <a onclick="showMain(); navigateTo('about');">About</a>
+            <a onclick="showMain(); navigateTo('services');">Services</a>
+            <a onclick="showMain(); navigateTo('blog');">Blog</a>
+            <a onclick="showMain(); navigateTo('planning');">Start Planning</a>
+            <a onclick="showMain(); navigateTo('contact');">Contact</a>
+            <a href="https://instagram.com/GoldKeyEscapes" target="_blank" class="mobile-instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
+                @GoldKeyEscapes
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content">
+        <!-- Hero -->
+        <section id="home" class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-tagline">Your Key to Unforgettable Journeys</div>
+                <h1 class="hero-title">Unlock Extraordinary<br><span class="hero-title-accent">Travel Experiences</span></h1>
+                <p class="hero-subtitle">Personalized group travel and celebration planning for families, friends, and milestone moments. Stress-free vacations, seamlessly crafted.</p>
+                <div class="hero-buttons">
+                    <a href="#planning" class="primary-btn">Start Planning <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+                    <a href="#services" class="secondary-btn">Explore Services</a>
+                </div>
+            </div>
+            <div class="scroll-indicator"><div class="scroll-line"></div></div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-frame">
+                            <div class="about-image-placeholder">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+                                <span class="placeholder-text">Photo Coming Soon</span>
+                            </div>
+                        </div>
+                        <div class="about-accent"></div>
+                    </div>
+                    <div class="about-content">
+                        <div class="section-label">About Me</div>
+                        <h2 class="section-title">Hi, I'm Kriss</h2>
+                        <p class="about-text">I specialize in planning meaningful, memorable travel for families, groups, and milestone celebrations. With a passion for creating experiences and a background in group coordination, I take the stress out of planning so you can simply enjoy your trip.</p>
+                        <p class="about-text">Every journey should feel effortless. That's why I handle every detail—from destination research to booking and beyond—so you can focus on making memories with the people who matter most.</p>
+                        <div class="differentiators">
+                            <h3 class="diff-title">What Makes Us Different</h3>
+                            <div class="diff-grid">
+                                <div class="diff-item"><div class="diff-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg></div><div><div class="diff-item-title">Personalized Planning</div><div class="diff-item-desc">Every trip tailored to your unique vision</div></div></div>
+                                <div class="diff-item"><div class="diff-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></svg></div><div><div class="diff-item-title">Group Travel Experts</div><div class="diff-item-desc">Seamless coordination for any group size</div></div></div>
+                                <div class="diff-item"><div class="diff-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M9 12l2 2 4-4" /></svg></div><div><div class="diff-item-title">Full Trip Support</div><div class="diff-item-desc">Here for you before, during, and after</div></div></div>
+                                <div class="diff-item"><div class="diff-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg></div><div><div class="diff-item-title">WorldVia Partner</div><div class="diff-item-desc">Access to top-tier suppliers and rates</div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="services">
+            <div class="services-background"></div>
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Services</div>
+                    <h2 class="section-title-light">Travel Planning,<br><span class="title-accent">Perfected</span></h2>
+                    <p class="section-subtitle">From intimate family getaways to grand celebrations, I craft journeys that exceed expectations.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.8 11.3L2 22l10.7-3.79" /><path d="M4 3h.01M22 8h.01M15 2h.01M22 20h.01M22 2l-2.24.75a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10" /><path d="M22 13l-.82-.33c-.86-.34-1.82.2-1.98 1.11v0c-.11.7-.72 1.22-1.43 1.22H17" /><path d="M11 2l.33.82c.34.86-.2 1.82-1.11 1.98v0C9.52 4.9 9 5.52 9 6.23V7" /></svg></div>
+                        <h3 class="service-title">Group Travel Planning</h3>
+                        <p class="service-desc">Birthdays, reunions, milestone celebrations, girls trips, couples getaways—no group is too big or too small.</p>
+                        <ul class="service-features"><li class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>Custom itineraries</li><li class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>Group rates</li><li class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>Coordinated bookings</li></ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="4" r="2" /><circle cx="18" cy="4" r="2" /><circle cx="12" cy="6" r="2.5" /><path d="M6 8v10" /><path d="M18 8v10" /><path d="M12 10v8" /><path d="M2 20h6" /><path d="M16 20h6" /><path d="M9 20h6" /></svg></div>
+                        <h3 class="service-title">Family Vacations</h3>
+                        <p class="service-desc">Create lasting memories with perfectly planned family adventures at resorts, cruises, and theme parks.</p>
+                        <ul class="service-features"><li class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>Kid-friendly options</li><li class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>Multi-generational trips</li><li class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>All-inclusive packages</li></ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" /></svg></div>
+                        <h3 class="service-title">Caribbean & All-Inclusive</h3>
+                        <p class="service-desc">Sun-soaked escapes to Jamaica, Mexico, Dominican Republic, and beyond. Paradise awaits.</p>
+                        <ul class="service-features"><li class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>Resort specialists</li><li class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>Adults-only & family</li><li class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>Honeymoon experts</li></ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" /></svg></div>
+                        <h3 class="service-title">Custom Trip Planning</h3>
+                        <p class="service-desc">Your dream trip, designed from scratch. Personalized recommendations and curated itineraries.</p>
+                        <ul class="service-features"><li class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>Destination research</li><li class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>Full concierge</li><li class="feature-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>Surprise elements</li></ul>
+                    </div>
+                </div>
+                <div class="fee-note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg><span>Planning fees may apply depending on trip complexity. Let's chat about your needs.</span></div>
+            </div>
+        </section>
+
+        <!-- Blog -->
+        <section id="blog" class="blog">
+            <div class="container">
+                <div class="blog-header">
+                    <div class="section-label">Travel Inspiration</div>
+                    <h2 class="section-title">The <span class="title-accent">Blog</span></h2>
+                    <p style="font-size: 18px; color: #6B6B6B; max-width: 500px; margin: 0 auto;">Tips, guides, and inspiration for your next adventure.</p>
+                </div>
+                <div class="blog-grid" id="blogGrid"></div>
+            </div>
+        </section>
+
+        <!-- Planning -->
+        <section id="planning" class="planning">
+            <div class="container">
+                <div class="planning-grid">
+                    <div class="planning-info">
+                        <div class="section-label">Start Planning</div>
+                        <h2 class="section-title">Your Dream Trip<br><span class="title-accent">Starts Here</span></h2>
+                        <p class="planning-text">Ready to escape? Tell me about your travel dreams, and I'll handle the rest. Fill out this quick inquiry, and I'll reach out within 24 hours to begin crafting your perfect getaway.</p>
+                        <div class="promise-list">
+                            <div class="promise-item"><div class="promise-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></div><span>No obligation consultation</span></div>
+                            <div class="promise-item"><div class="promise-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></div><span>Personalized recommendations</span></div>
+                            <div class="promise-item"><div class="promise-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></div><span>Transparent pricing</span></div>
+                            <div class="promise-item"><div class="promise-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg></div><span>Expert guidance every step</span></div>
+                        </div>
+                    </div>
+                    <div class="form-wrapper">
+                        <form class="form" id="inquiryForm">
+                            <div class="form-row"><div class="input-group"><label class="label">Full Name *</label><input type="text" name="name" required class="input" placeholder="Your name"></div><div class="input-group"><label class="label">Email *</label><input type="email" name="email" required class="input" placeholder="email@example.com"></div></div>
+                            <div class="form-row"><div class="input-group"><label class="label">Phone</label><input type="tel" name="phone" class="input" placeholder="(555) 123-4567"></div><div class="input-group"><label class="label">Number of Travelers</label><input type="number" name="travelers" class="input" placeholder="e.g., 4"></div></div>
+                            <div class="form-row"><div class="input-group"><label class="label">Destination (if known)</label><input type="text" name="destination" class="input" placeholder="Where would you like to go?"></div><div class="input-group"><label class="label">Travel Dates</label><input type="text" name="dates" class="input" placeholder="Approximate dates"></div></div>
+                            <div class="form-row"><div class="input-group"><label class="label">Budget Range</label><select name="budget" class="select"><option value="">Select budget range</option><option value="under-2500">Under $2,500</option><option value="2500-5000">$2,500 - $5,000</option><option value="5000-10000">$5,000 - $10,000</option><option value="10000-plus">$10,000+</option><option value="flexible">Flexible</option></select></div><div class="input-group"><label class="label">Type of Trip</label><select name="tripType" class="select"><option value="">Select trip type</option><option value="family">Family Vacation</option><option value="group">Group Travel</option><option value="celebration">Celebration/Milestone</option><option value="honeymoon">Honeymoon</option><option value="couples">Couples Getaway</option><option value="other">Other</option></select></div></div>
+                            <div class="input-group"><label class="label">Special Requests or Details</label><textarea name="requests" class="textarea" placeholder="Tell me more about your dream trip..." rows="4"></textarea></div>
+                            <button type="submit" class="submit-btn">Submit Inquiry <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact">
+            <div class="contact-background"></div>
+            <div class="container">
+                <div class="contact-content">
+                    <div class="section-label">Get in Touch</div>
+                    <h2 class="section-title-light">Let's Start a<br><span class="title-accent">Conversation</span></h2>
+                    <p class="contact-text">Have questions? Want to learn more about how I can help plan your next adventure? I'd love to hear from you.</p>
+                    <div class="contact-methods">
+                        <a href="/cdn-cgi/l/email-protection#046f766d777744636b68606f617d617767657461772a676b69" class="contact-method">
+                            <div class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg></div>
+                            <div><div class="contact-method-label">Email</div><div class="contact-method-value"><span class="__cf_email__" data-cfemail="c6adb4afb5b586a1a9aaa2ada3bfa3b5a5a7b6a3b5e8a5a9ab">[email&#160;protected]</span></div></div>
+                        </a>
+                        <div class="social-links">
+                            <a href="https://instagram.com/GoldKeyEscapes" target="_blank" class="social-link instagram" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg></a>
+                            <a href="#" class="social-link" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg></a>
+                        </div>
+                        <a href="https://instagram.com/GoldKeyEscapes" target="_blank" class="instagram-cta"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>Follow @GoldKeyEscapes</a>
+                    </div>
+                    <div class="quick-contact">
+                        <h3 class="quick-contact-title">Quick Message</h3>
+                        <form class="quick-form"><input type="text" placeholder="Your Name" class="quick-input"><input type="email" placeholder="Your Email" class="quick-input"><textarea placeholder="Your Message" rows="3" class="quick-textarea"></textarea><button type="submit" class="quick-submit">Send Message</button></form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Legal Pages (Privacy & Terms) -->
+    <div id="privacyPage" class="legal-page">
+        <header class="page-header"><div class="page-header-overlay"></div><div class="page-header-content"><h1 class="page-title">Privacy Policy</h1><p class="page-subtitle">Your privacy matters to us.</p><span class="last-updated">Last Updated: December 2024</span></div></header>
+        <section class="content-section"><div class="container"><div class="legal-content"><div class="section-block"><h2 class="section-heading">Introduction</h2><p>Gold Key Escapes is committed to protecting your privacy. This policy describes how we collect, use, and safeguard your information.</p></div><div class="section-block"><h2 class="section-heading">Contact Us</h2><p><strong>Gold Key Escapes</strong><br>Email: <a href="/cdn-cgi/l/email-protection#2d465f445e5e6d4a424149464854485e4e4c5d485e034e4240"><span class="__cf_email__" data-cfemail="acc7dec5dfdfeccbc3c0c8c7c9d5c9dfcfcddcc9df82cfc3c1">[email&#160;protected]</span></a></p></div><button class="back-link" onclick="showMain()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>Back to Home</button></div></div></section>
+    </div>
+    <div id="termsPage" class="legal-page">
+        <header class="page-header"><div class="page-header-overlay"></div><div class="page-header-content"><h1 class="page-title">Terms of Service</h1><p class="page-subtitle">Please read these terms carefully.</p><span class="last-updated">Last Updated: December 2024</span></div></header>
+        <section class="content-section"><div class="container"><div class="legal-content"><div class="section-block"><h2 class="section-heading">Agreement to Terms</h2><p>By using our services, you agree to these terms. Gold Key Escapes operates as an independent travel advisor affiliated with WorldVia Travel Network.</p></div><div class="section-block"><h2 class="section-heading">Contact</h2><p><strong>Gold Key Escapes</strong><br>Email: <a href="/cdn-cgi/l/email-protection#19726b706a6a597e76757d727c607c6a7a78697c6a377a7674"><span class="__cf_email__" data-cfemail="6c071e051f1f2c0b030008070915091f0f0d1c091f420f0301">[email&#160;protected]</span></a></p></div><button class="back-link" onclick="showMain()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>Back to Home</button></div></div></section>
+    </div>
+
+    <!-- Blog Modal -->
+    <div class="blog-modal" id="blogModal">
+        <div class="blog-modal-content">
+            <div class="blog-modal-header">
+                <div class="blog-modal-image" id="modalImage"></div>
+                <button class="blog-modal-close" onclick="closeBlogModal()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+            </div>
+            <div class="blog-modal-body">
+                <span class="blog-modal-category" id="modalCategory"></span>
+                <h1 class="blog-modal-title" id="modalTitle"></h1>
+                <div class="blog-modal-meta"><span id="modalDate"></span><span id="modalReadTime"></span></div>
+                <div class="blog-modal-text" id="modalContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" /></svg><span>Gold Key Escapes</span></div>
+                    <p class="footer-tagline">Your key to stress-free celebrations and getaways.</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/GoldKeyEscapes" target="_blank" class="footer-social-link instagram" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg></a>
+                        <a href="#" class="footer-social-link" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column"><div class="footer-column-title">Navigate</div><button class="footer-link" onclick="showMain(); navigateTo('home');">Home</button><button class="footer-link" onclick="showMain(); navigateTo('about');">About</button><button class="footer-link" onclick="showMain(); navigateTo('services');">Services</button><button class="footer-link" onclick="showMain(); navigateTo('blog');">Blog</button><button class="footer-link" onclick="showMain(); navigateTo('planning');">Start Planning</button><button class="footer-link" onclick="showMain(); navigateTo('contact');">Contact</button></div>
+                    <div class="footer-column"><div class="footer-column-title">Legal</div><button class="footer-link" onclick="showPage('privacy')">Privacy Policy</button><button class="footer-link" onclick="showPage('terms')">Terms of Service</button></div>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>© 2025 Gold Key Escapes. All rights reserved.</p><p class="powered-by">Powered by WorldVia Pro Travel Agent</p></div>
+        </div>
+    </footer>
+
+    <!-- ========== BLOG POSTS DATA ========== -->
+    <!-- Add new posts at the TOP of this array (newest first) -->
+    <script>
+        let blogPosts = [];
+
+        // Fetch posts from JSON file (generated by CMS)
+        async function loadBlogPosts() {
+            try {
+                const response = await fetch('/data/posts.json');
+                blogPosts = await response.json();
+            } catch (error) {
+                console.log('No blog posts yet');
+                blogPosts = [];
+            }
+            renderBlogPosts();
+        }
+
+        function renderBlogPosts() {
+            const grid = document.getElementById('blogGrid');
+            if (blogPosts.length === 0) {
+                grid.innerHTML = `<div class="blog-empty"><div class="blog-empty-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg></div><h3 class="blog-empty-title">Coming Soon</h3><p class="blog-empty-text">Travel tips and destination inspiration are on the way!</p></div>`;
+                return;
+            }
+            grid.innerHTML = blogPosts.slice(0, 6).map((post, i) => `<div class="blog-card" onclick="openBlogPost(${i})"><div class="blog-card-image">${post.image ? `<img src="${post.image}" alt="${post.title}">` : ''}</div><div class="blog-card-content"><span class="blog-card-category">${post.category}</span><h3 class="blog-card-title">${post.title}</h3><p class="blog-card-excerpt">${post.excerpt}</p><div class="blog-card-meta"><span class="blog-card-date"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>${post.date}</span><span class="blog-card-read">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg></span></div></div></div>`).join('');
+        }
+
+        function openBlogPost(i) {
+            const p = blogPosts[i];
+            document.getElementById('modalCategory').textContent = p.category;
+            document.getElementById('modalTitle').textContent = p.title;
+            document.getElementById('modalDate').innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>${p.date}`;
+            document.getElementById('modalReadTime').innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>${p.readTime}`;
+            document.getElementById('modalContent').innerHTML = p.content;
+            document.getElementById('modalImage').innerHTML = p.image ? `<img src="${p.image}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;">` : '';
+            document.getElementById('blogModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBlogModal() { document.getElementById('blogModal').classList.remove('active'); document.body.style.overflow = ''; }
+        document.getElementById('blogModal').addEventListener('click', function(e) { if (e.target === this) closeBlogModal(); });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeBlogModal(); });
+        
+        // Load posts on page load
+        loadBlogPosts();
+
+        // Netlify Identity redirect
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+
+    <script>
+        function showMain() { document.getElementById('mainContent').classList.remove('hidden'); document.getElementById('privacyPage').classList.remove('active'); document.getElementById('termsPage').classList.remove('active'); closeMobileMenu(); }
+        function showPage(page) { document.getElementById('mainContent').classList.add('hidden'); document.getElementById('privacyPage').classList.remove('active'); document.getElementById('termsPage').classList.remove('active'); if (page === 'privacy') document.getElementById('privacyPage').classList.add('active'); else if (page === 'terms') document.getElementById('termsPage').classList.add('active'); window.scrollTo(0, 0); closeMobileMenu(); }
+        function navigateTo(id) { setTimeout(() => { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'smooth' }); }, 100); }
+        function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+        function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('active'); }
+        window.addEventListener('scroll', () => { let current = ''; document.querySelectorAll('section').forEach(s => { if (scrollY >= s.offsetTop - 200) current = s.getAttribute('id'); }); document.querySelectorAll('.nav-link').forEach(l => { l.classList.remove('active'); if (l.getAttribute('href') === '#' + current) l.classList.add('active'); }); });
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) { e.preventDefault(); document.querySelector('.form-wrapper').innerH
