@@ -412,7 +412,8 @@
                         </div>
                     </div>
                     <div class="form-wrapper">
-                        <form class="form" id="inquiryForm">
+                        <form class="form" id="inquiryForm" name="inquiry" method="POST" data-netlify="true">
+                            <input type="hidden" name="form-name" value="inquiry">
                             <div class="form-row"><div class="input-group"><label class="label">Full Name *</label><input type="text" name="name" required class="input" placeholder="Your name"></div><div class="input-group"><label class="label">Email *</label><input type="email" name="email" required class="input" placeholder="email@example.com"></div></div>
                             <div class="form-row"><div class="input-group"><label class="label">Phone</label><input type="tel" name="phone" class="input" placeholder="(555) 123-4567"></div><div class="input-group"><label class="label">Number of Travelers</label><input type="number" name="travelers" class="input" placeholder="e.g., 4"></div></div>
                             <div class="form-row"><div class="input-group"><label class="label">Destination (if known)</label><input type="text" name="destination" class="input" placeholder="Where would you like to go?"></div><div class="input-group"><label class="label">Travel Dates</label><input type="text" name="dates" class="input" placeholder="Approximate dates"></div></div>
@@ -446,7 +447,7 @@
                     </div>
                     <div class="quick-contact">
                         <h3 class="quick-contact-title">Quick Message</h3>
-                        <form class="quick-form"><input type="text" placeholder="Your Name" class="quick-input"><input type="email" placeholder="Your Email" class="quick-input"><textarea placeholder="Your Message" rows="3" class="quick-textarea"></textarea><button type="submit" class="quick-submit">Send Message</button></form>
+                        <form class="quick-form" name="quick-contact" method="POST" data-netlify="true"><input type="hidden" name="form-name" value="quick-contact"><input type="text" name="name" placeholder="Your Name" class="quick-input" required><input type="email" name="email" placeholder="Your Email" class="quick-input" required><textarea name="message" placeholder="Your Message" rows="3" class="quick-textarea" required></textarea><button type="submit" class="quick-submit">Send Message</button></form>
                     </div>
                 </div>
             </div>
@@ -564,4 +565,6 @@
         function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
         function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('active'); }
         window.addEventListener('scroll', () => { let current = ''; document.querySelectorAll('section').forEach(s => { if (scrollY >= s.offsetTop - 200) current = s.getAttribute('id'); }); document.querySelectorAll('.nav-link').forEach(l => { l.classList.remove('active'); if (l.getAttribute('href') === '#' + current) l.classList.add('active'); }); });
-        document.getElementById('inquiryForm').addEventListener('submit', function(e) { e.preventDefault(); document.querySelector('.form-wrapper').innerH
+    </script>
+</body>
+</html>
